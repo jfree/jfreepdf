@@ -26,7 +26,7 @@ There are some demonstration applications included in the [JFree Demos](https://
 
 Include
 -------
-JFreePDF is published to the Central Repository. You can include it in your projects with the following dependency:
+JFreePDF is (will be) published to the Central Repository. You can include it in your projects with the following dependency:
 
     <dependency>
         <groupId>org.jfree</groupId>

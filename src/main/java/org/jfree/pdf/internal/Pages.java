@@ -30,16 +30,17 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.internal;
 
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.jfree.pdf.PDFDocument;
+import org.jfree.pdf.Page;
 import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.font.DefaultFontMapper;
-import org.jfree.pdf.font.FontKey;
 import org.jfree.pdf.font.FontMapper;
 import org.jfree.pdf.font.PDFFont;
 import org.jfree.pdf.object.PDFObject;
@@ -51,21 +52,21 @@ import org.jfree.pdf.util.Args;
  * {@code Pages} and add it to the document catalog.  You won't normally
  * interact directly with this class.
  */
-final class Pages extends PDFObject {
+public final class Pages extends PDFObject {
     
     /** The PDF document. */
-    private PDFDocument parent;
+    private final PDFDocument parent;
     
-    private List<Page> pages;
+    private final List<Page> pages;
 
     /** The list of font objects used in the document. */
-    private List<PDFFont> fonts;
+    private final List<PDFFont> fonts;
     
-    private Map<FontKey, PDFFont> fontMap;
+    private final Map<FontKey, PDFFont> fontMap;
     
     private int nextFont = 1;
     
-    private FontMapper fontMapper;
+    private final FontMapper fontMapper;
     
     /**
      * Creates a new {@code Pages} object.
@@ -74,7 +75,7 @@ final class Pages extends PDFObject {
      * @param generation  the PDF object generation number.
      * @param parent  the PDF document ({@code null} not permitted).
      */
-    Pages(int number, int generation, PDFDocument parent) {
+    public Pages(int number, int generation, PDFDocument parent) {
         super(number, generation);
         Args.nullNotPermitted(parent, "parent");
         this.parent = parent;
@@ -133,7 +134,7 @@ final class Pages extends PDFObject {
      * 
      * @param page  the page. 
      */
-    void add(Page page) {
+    public void add(Page page) {
         this.pages.add(page);
     }
     

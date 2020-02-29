@@ -51,6 +51,7 @@ import org.jfree.pdf.font.PDFFont;
 import org.jfree.pdf.function.ExponentialInterpolationFunction;
 import org.jfree.pdf.function.Function;
 import org.jfree.pdf.function.StitchingFunction;
+import org.jfree.pdf.internal.Pages;
 import org.jfree.pdf.object.PDFObject;
 import org.jfree.pdf.object.Pattern;
 import org.jfree.pdf.shading.AxialShading;

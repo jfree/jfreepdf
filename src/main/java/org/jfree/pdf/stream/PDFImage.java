@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.stream;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

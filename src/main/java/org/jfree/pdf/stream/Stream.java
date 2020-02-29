@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.stream;
 
 import org.jfree.pdf.filter.Filter;
 import org.jfree.pdf.util.Args;
@@ -38,6 +38,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.jfree.pdf.PDFObject;
+import org.jfree.pdf.PDFUtils;
 import org.jfree.pdf.dictionary.Dictionary;
 
 /**

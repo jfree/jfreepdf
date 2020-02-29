@@ -70,6 +70,7 @@ import java.awt.image.renderable.RenderableImage;
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
 import java.util.Map;
+import org.jfree.pdf.stream.GraphicsStream;
 import org.jfree.pdf.util.Args;
 import org.jfree.pdf.util.GraphicsUtils;
 
@@ -170,7 +171,7 @@ public final class PDFGraphics2D extends Graphics2D {
      * @param width  the width.
      * @param height  the height.
      */
-    public PDFGraphics2D(GraphicsStream gs, int width, int height) {
+    PDFGraphics2D(GraphicsStream gs, int width, int height) {
         this(gs, width, height, false);
     }
 
@@ -186,7 +187,7 @@ public final class PDFGraphics2D extends Graphics2D {
      *        transform to be skipped (used for watermarks which are appended
      *        to an existing stream that already has the transform).
      */
-    public PDFGraphics2D(GraphicsStream gs, int width, int height, 
+    PDFGraphics2D(GraphicsStream gs, int width, int height, 
             boolean skipJava2DTransform) {
         Args.nullNotPermitted(gs, "gs");
         this.width = width;

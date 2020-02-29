@@ -50,6 +50,9 @@ import org.jfree.pdf.filter.FlateFilter;
 import org.jfree.pdf.shading.AxialShading;
 import org.jfree.pdf.shading.RadialShading;
 import org.jfree.pdf.shading.Shading;
+import org.jfree.pdf.stream.GraphicsStream;
+import org.jfree.pdf.stream.PDFImage;
+import org.jfree.pdf.stream.PDFSoftMaskImage;
 import org.jfree.pdf.util.Args;
 import org.jfree.pdf.util.GradientPaintKey;
 import org.jfree.pdf.util.RadialGradientPaintKey;
@@ -132,15 +135,14 @@ public class Page extends PDFObject {
         Args.nullNotPermitted(bounds, "bounds");
         this.parent = parent;
         this.bounds = (Rectangle2D) bounds.clone();
-        this.fontsOnPage = new ArrayList<String>();
+        this.fontsOnPage = new ArrayList<>();
         int n = this.parent.getDocument().getNextNumber();
         this.contents = new GraphicsStream(n, this);
         if (filter) {
             this.contents.addFilter(new FlateFilter());
         }
-        this.gradientPaintsOnPage = new HashMap<GradientPaintKey, String>();
-        this.radialGradientPaintsOnPage = new HashMap<RadialGradientPaintKey,
-                String>();
+        this.gradientPaintsOnPage = new HashMap<>();
+        this.radialGradientPaintsOnPage = new HashMap<>();
         this.patterns = new Dictionary();
         this.graphicsStates = new Dictionary();
         
@@ -191,7 +193,7 @@ public class Page extends PDFObject {
      * 
      * @return The font reference.
      */
-    String findOrCreateFontReference(Font font) {
+    public String findOrCreateFontReference(Font font) {
         String ref = this.parent.findOrCreateFontReference(font);
         if (!this.fontsOnPage.contains(ref)) {
             this.fontsOnPage.add(ref);
@@ -217,7 +219,7 @@ public class Page extends PDFObject {
      * 
      * @return The pattern name. 
      */
-    String findOrCreatePattern(GradientPaint gp) {
+    public String findOrCreatePattern(GradientPaint gp) {
         GradientPaintKey key = new GradientPaintKey(gp);
         String patternName = this.gradientPaintsOnPage.get(key);
         if (patternName == null) {
@@ -253,7 +255,7 @@ public class Page extends PDFObject {
      * 
      * @return The pattern name. 
      */
-    String findOrCreatePattern(RadialGradientPaint gp) {
+    public String findOrCreatePattern(RadialGradientPaint gp) {
         RadialGradientPaintKey key = new RadialGradientPaintKey(gp);
         String patternName = this.radialGradientPaintsOnPage.get(key);
         if (patternName == null) {
@@ -324,8 +326,8 @@ public class Page extends PDFObject {
      * 
      * @return The graphics state dictionary reference. 
      */
-    String findOrCreateGSDictionary(int alpha) {
-        Integer key = Integer.valueOf(alpha);
+    public String findOrCreateGSDictionary(int alpha) {
+        Integer key = alpha;
         float alphaValue = alpha / 255f;
         String name = this.alphaDictionaries.get(key);
         if (name == null) {
@@ -363,17 +365,17 @@ public class Page extends PDFObject {
     }
     
     /**
-     * Adds an image to the page.  This creates the required PDF object, 
-     * as well as adding a reference in the {@code xObjects} resources.
-     * You should not call this method directly, it exists for the use of the
-     * {@link PDFGraphics2D#drawImage(java.awt.Image, int, int, int, int, java.awt.image.ImageObserver)} 
+     * Adds an image to the page.This creates the required PDF object, 
+ as well as adding a reference in the {@code xObjects} resources.  You should not call this method directly, it exists for the use of the
+ {@link PDFGraphics2D#drawImage(java.awt.Image, int, int, int, int, java.awt.image.ImageObserver)} 
      * method.
      * 
      * @param img  the image ({@code null} not permitted).
+     * @param addSoftMaskImage
      * 
      * @return The image reference name.
      */
-    String addImage(Image img, boolean addSoftMaskImage) {
+    public String addImage(Image img, boolean addSoftMaskImage) {
         Args.nullNotPermitted(img, "img");
         PDFDocument pdfDoc = this.parent.getDocument();
         String softMaskImageRef = null;

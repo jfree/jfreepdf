@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.stream;
 
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
@@ -50,6 +50,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import org.jfree.pdf.PDFGraphics2D;
+import org.jfree.pdf.PDFUtils;
+import org.jfree.pdf.Page;
 import org.jfree.pdf.util.Args;
 
 /**
@@ -95,7 +98,7 @@ public class GraphicsStream extends Stream {
      * @param number  the PDF object number.
      * @param page  the parent page ({@code null} not permitted).
      */
-    GraphicsStream(int number, Page page) {
+    public GraphicsStream(int number, Page page) {
         super(number);
         this.page = page;
         this.content = new ByteArrayOutputStream();
@@ -119,14 +122,14 @@ public class GraphicsStream extends Stream {
     /**
      * Pushes the current graphics state onto a stack for later retrieval.
      */
-    void pushGraphicsState() {
+    public void pushGraphicsState() {
         addContent("q\n");    
     }
     
     /**
      * Pops the graphics state that was previously pushed onto the stack.
      */
-    void popGraphicsState() {
+    public void popGraphicsState() {
         addContent("Q\n");
     }
     
@@ -135,7 +138,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param t  the transform ({@code null} not permitted).
      */
-    void applyTransform(AffineTransform t) {
+    public void applyTransform(AffineTransform t) {
         StringBuilder b = new StringBuilder();
         b.append(transformDP(t.getScaleX())).append(" ");
         b.append(transformDP(t.getShearY())).append(" ");
@@ -151,7 +154,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param t  the transform ({@code null} not permitted). 
      */
-    void setTransform(AffineTransform t) {
+    public void setTransform(AffineTransform t) {
         AffineTransform tt = new AffineTransform(t);
         try {
             AffineTransform inv = tt.createInverse();
@@ -174,7 +177,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param t  the transform ({@code null} not permitted). 
      */
-    void applyTextTransform(AffineTransform t) {
+    private void applyTextTransform(AffineTransform t) {
         StringBuilder b = new StringBuilder();
         b.append(t.getScaleX()).append(" ");
         b.append(t.getShearY()).append(" ");
@@ -190,7 +193,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param clip  the clip ({@code null} not permitted). 
      */
-    void applyClip(Shape clip) {
+    public void applyClip(Shape clip) {
         Args.nullNotPermitted(clip, "clip");
         StringBuilder b = new StringBuilder();
         Path2D p = new Path2D.Double(clip);
@@ -205,7 +208,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param s  the stroke. 
      */
-    void applyStroke(Stroke s) {
+    public void applyStroke(Stroke s) {
         if (!(s instanceof BasicStroke)) {
             return;
         }
@@ -228,7 +231,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param c  the color ({@code null} not permitted). 
      */
-    void applyStrokeColor(Color c) {
+    public void applyStrokeColor(Color c) {
         float red = c.getRed() / 255f;
         float green = c.getGreen() / 255f;
         float blue = c.getBlue() / 255f;
@@ -244,7 +247,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param c  the color ({@code null} not permitted).
      */
-    void applyFillColor(Color c) {
+    public void applyFillColor(Color c) {
         float red = c.getRed() / 255f;
         float green = c.getGreen() / 255f;
         float blue = c.getBlue() / 255f;
@@ -260,7 +263,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param gp  the gradient paint ({@code null} not permitted). 
      */
-    void applyStrokeGradient(GradientPaint gp) {
+    public void applyStrokeGradient(GradientPaint gp) {
         // delegate arg checking
         String patternName = this.page.findOrCreatePattern(gp);
         StringBuilder b = new StringBuilder("/Pattern CS\n");
@@ -271,9 +274,9 @@ public class GraphicsStream extends Stream {
     /**
      * Applies a {@code RadialGradientPaint} for stroking.
      * 
-     * @param gp  the gradient paint ({@code null} not permitted). 
+     * @param rgp  the gradient paint ({@code null} not permitted). 
      */    
-    void applyStrokeGradient(RadialGradientPaint rgp) {
+    public void applyStrokeGradient(RadialGradientPaint rgp) {
         // delegate arg checking
         String patternName = this.page.findOrCreatePattern(rgp);
         StringBuilder b = new StringBuilder("/Pattern CS\n");
@@ -286,7 +289,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param gp  the gradient paint ({@code null} not permitted). 
      */
-    void applyFillGradient(GradientPaint gp) {
+    public void applyFillGradient(GradientPaint gp) {
         // delegate arg checking
         String patternName = this.page.findOrCreatePattern(gp);
         StringBuilder b = new StringBuilder("/Pattern cs\n");
@@ -297,9 +300,9 @@ public class GraphicsStream extends Stream {
     /**
      * Applies a {@code RadialGradientPaint} for filling.
      * 
-     * @param gp  the gradient paint ({@code null} not permitted). 
+     * @param rgp  the gradient paint ({@code null} not permitted). 
      */
-    void applyFillGradient(RadialGradientPaint rgp) {
+    public void applyFillGradient(RadialGradientPaint rgp) {
         // delegate arg checking
         String patternName = this.page.findOrCreatePattern(rgp);
         StringBuilder b = new StringBuilder("/Pattern cs\n");
@@ -314,7 +317,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param alphaComp  the alpha composite ({@code null} permitted). 
      */
-    void applyComposite(AlphaComposite alphaComp) {
+    public void applyComposite(AlphaComposite alphaComp) {
         if (alphaComp == null) {
             this.alphaFactor = 1.0f;
         } else {
@@ -336,7 +339,7 @@ public class GraphicsStream extends Stream {
      * @param alpha  the new alpha value (in the range {@code 0} 
      *     to {@code 255}). 
      */
-    void applyAlpha(int alpha) {
+    private void applyAlpha(int alpha) {
         int a = (int) (alpha * this.alphaFactor);
         if (this.alpha != a) {
             String name = this.page.findOrCreateGSDictionary(a);
@@ -368,7 +371,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param line  the line ({@code null} not permitted). 
      */
-    void drawLine(Line2D line) {
+    public void drawLine(Line2D line) {
         StringBuilder b = new StringBuilder();
         b.append(geomDP(line.getX1())).append(" ").append(geomDP(line.getY1()))
                 .append(" ").append("m\n");
@@ -383,7 +386,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param path  the path ({@code null} not permitted). 
      */
-    void drawPath2D(Path2D path) {
+    public void drawPath2D(Path2D path) {
         StringBuilder b = new StringBuilder();
         b.append(getPDFPath(path)).append("S\n");
         addContent(b.toString());
@@ -394,7 +397,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param path  the path ({@code null} not permitted).
      */
-    void fillPath2D(Path2D path) {
+    public void fillPath2D(Path2D path) {
         StringBuilder b = new StringBuilder();
         b.append(getPDFPath(path)).append("f\n");
         addContent(b.toString());
@@ -407,7 +410,7 @@ public class GraphicsStream extends Stream {
      * 
      * @param font  the font.
      */
-    void applyFont(Font font) {
+    public void applyFont(Font font) {
         this.font = font;
     }
     
@@ -418,7 +421,7 @@ public class GraphicsStream extends Stream {
      * @param x  the x-coordinate.
      * @param y  the y-coordinate.
      */
-    void drawString(String text, float x, float y) {
+    public void drawString(String text, float x, float y) {
         // we need to get the reference for the current font (creating a 
         // new font object if there isn't already one)
         String fontRef = this.page.findOrCreateFontReference(this.font);
@@ -443,7 +446,7 @@ public class GraphicsStream extends Stream {
      * @param w  the width of the destination.
      * @param h  the height of the destination.
      */
-    void drawImage(Image img, int x, int y, int w, int h) {
+    public void drawImage(Image img, int x, int y, int w, int h) {
         String imageRef = this.page.addImage(img, true);
         StringBuilder b = new StringBuilder();
         b.append("q\n");

@@ -39,8 +39,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.jfree.pdf.PDFObject;
-import org.jfree.pdf.PDFUtils;
 import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A {@code Stream} is a {@link PDFObject} that has a {@link Dictionary} 

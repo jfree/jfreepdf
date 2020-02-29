@@ -32,7 +32,7 @@
 
 package org.jfree.pdf.function;
 
-import org.jfree.pdf.PDFUtils;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A PDF "Type 2" function.

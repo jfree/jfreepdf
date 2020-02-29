@@ -38,7 +38,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.jfree.pdf.PDFObject;
-import org.jfree.pdf.PDFUtils;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A dictionary is a map and supports writing the bytes for the dictionary

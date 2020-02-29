@@ -36,6 +36,7 @@ import java.awt.geom.AffineTransform;
 import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.shading.Shading;
 import org.jfree.pdf.util.Args;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A pattern object (see the concrete subclass {@link ShadingPattern}).

@@ -51,9 +51,9 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.jfree.pdf.PDFGraphics2D;
-import org.jfree.pdf.PDFUtils;
 import org.jfree.pdf.Page;
 import org.jfree.pdf.util.Args;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A {@code Stream} that contains graphics for the PDF document that

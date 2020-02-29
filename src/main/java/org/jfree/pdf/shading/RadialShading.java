@@ -32,9 +32,9 @@
 
 package org.jfree.pdf.shading;
 
-import org.jfree.pdf.PDFUtils;
 import org.jfree.pdf.function.Function;
 import org.jfree.pdf.util.Args;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A radial shading.

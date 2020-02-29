@@ -34,6 +34,7 @@ package org.jfree.pdf;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import org.jfree.pdf.util.PDFUtils;
 
 /**
  * A PDF Object (also referred to as an 'Indirect Object' in the PDF

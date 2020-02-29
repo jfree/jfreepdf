@@ -30,9 +30,8 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.util;
 
-import org.jfree.pdf.util.Args;
 import java.awt.geom.AffineTransform;
 import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;

@@ -44,6 +44,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.jfree.pdf.Pattern.ShadingPattern;
+import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.dictionary.GraphicsStateDictionary;
 import org.jfree.pdf.filter.FlateFilter;
 import org.jfree.pdf.shading.AxialShading;
 import org.jfree.pdf.shading.RadialShading;

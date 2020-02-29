@@ -32,6 +32,7 @@
 
 package org.jfree.pdf;
 
+import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.util.Args;
 
 /**

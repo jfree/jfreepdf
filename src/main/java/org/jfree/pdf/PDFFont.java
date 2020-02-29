@@ -32,6 +32,8 @@
 
 package org.jfree.pdf;
 
+import org.jfree.pdf.dictionary.Dictionary;
+
 /**
  * A {@link PDFObject} representing a PDF font.
  */

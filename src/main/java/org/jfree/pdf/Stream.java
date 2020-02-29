@@ -38,6 +38,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.jfree.pdf.dictionary.Dictionary;
 
 /**
  * A {@code Stream} is a {@link PDFObject} that has a {@link Dictionary} 

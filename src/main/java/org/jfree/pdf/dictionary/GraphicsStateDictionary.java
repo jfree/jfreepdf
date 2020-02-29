@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.dictionary;
 
 /**
  * A graphics state dictionary.

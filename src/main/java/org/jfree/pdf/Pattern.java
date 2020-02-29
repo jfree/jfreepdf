@@ -33,6 +33,7 @@
 package org.jfree.pdf;
 
 import java.awt.geom.AffineTransform;
+import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.shading.Shading;
 import org.jfree.pdf.util.Args;
 

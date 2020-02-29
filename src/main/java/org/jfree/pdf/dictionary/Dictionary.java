@@ -30,13 +30,15 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.dictionary;
 
 import java.awt.geom.Rectangle2D;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import org.jfree.pdf.PDFObject;
+import org.jfree.pdf.PDFUtils;
 
 /**
  * A dictionary is a map and supports writing the bytes for the dictionary

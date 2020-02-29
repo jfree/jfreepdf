@@ -30,8 +30,9 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.dictionary;
 
+import org.jfree.pdf.PDFObject;
 import org.jfree.pdf.util.Args;
 
 /**
@@ -50,7 +51,7 @@ public class DictionaryObject extends PDFObject {
      * @param number  the object number.
      * @param type  the object type (for example, "/Catalog"). 
      */
-    DictionaryObject(int number, String type) {
+    public DictionaryObject(int number, String type) {
         super(number);
         this.dictionary = new Dictionary(type);
     }

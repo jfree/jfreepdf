@@ -44,6 +44,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.dictionary.DictionaryObject;
 import org.jfree.pdf.util.Args;
 
 /**

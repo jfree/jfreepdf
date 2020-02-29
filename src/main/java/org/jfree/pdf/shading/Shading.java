@@ -32,8 +32,8 @@
 
 package org.jfree.pdf.shading;
 
-import org.jfree.pdf.Dictionary;
 import org.jfree.pdf.PDFObject;
+import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.util.Args;
 
 /**

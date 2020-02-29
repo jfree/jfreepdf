@@ -2,7 +2,7 @@
  * OrsonPDF : a fast, light-weight PDF library for the Java(tm) platform
  * =====================================================================
  * 
- * (C)opyright 2013-2015, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
  *
  * Project Info:  http://www.object-refinery.com/orsonpdf/index.html
  * 

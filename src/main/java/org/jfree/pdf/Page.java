@@ -47,6 +47,7 @@ import org.jfree.pdf.object.Pattern.ShadingPattern;
 import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.dictionary.GraphicsStateDictionary;
 import org.jfree.pdf.filter.FlateFilter;
+import org.jfree.pdf.font.PDFFont;
 import org.jfree.pdf.function.ExponentialInterpolationFunction;
 import org.jfree.pdf.function.Function;
 import org.jfree.pdf.function.StitchingFunction;

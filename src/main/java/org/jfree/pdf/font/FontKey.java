@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.font;
 
 import java.awt.Font;
 import org.jfree.pdf.util.Args;

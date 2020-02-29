@@ -30,11 +30,13 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.font;
 
 import java.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
+import org.jfree.pdf.PDFGraphics2D;
+import org.jfree.pdf.PDFHints;
 
 /**
  * A class that can be used to map AWT/Java2D fonts to PDF built-in font names.

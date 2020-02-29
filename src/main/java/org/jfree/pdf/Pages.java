@@ -38,6 +38,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.font.DefaultFontMapper;
+import org.jfree.pdf.font.FontKey;
+import org.jfree.pdf.font.FontMapper;
+import org.jfree.pdf.font.PDFFont;
 import org.jfree.pdf.object.PDFObject;
 import org.jfree.pdf.util.Args;
 
@@ -47,7 +51,7 @@ import org.jfree.pdf.util.Args;
  * {@code Pages} and add it to the document catalog.  You won't normally
  * interact directly with this class.
  */
-public final class Pages extends PDFObject {
+final class Pages extends PDFObject {
     
     /** The PDF document. */
     private PDFDocument parent;
@@ -74,9 +78,9 @@ public final class Pages extends PDFObject {
         super(number, generation);
         Args.nullNotPermitted(parent, "parent");
         this.parent = parent;
-        this.pages = new ArrayList<Page>();
-        this.fonts = new ArrayList<PDFFont>();
-        this.fontMap = new HashMap<FontKey, PDFFont>();
+        this.pages = new ArrayList<>();
+        this.fonts = new ArrayList<>();
+        this.fontMap = new HashMap<>();
         this.fontMapper = new DefaultFontMapper();
     }
     
@@ -125,8 +129,9 @@ public final class Pages extends PDFObject {
     }
     
     /**
+     * Adds a page to the collection.
      * 
-     * @param page 
+     * @param page  the page. 
      */
     void add(Page page) {
         this.pages.add(page);
@@ -164,7 +169,7 @@ public final class Pages extends PDFObject {
             pagesArray[i] = this.pages.get(i);
         }
         dictionary.put("/Kids", pagesArray);
-        dictionary.put("/Count", Integer.valueOf(pages.size()));
+        dictionary.put("/Count", pages.size());
         return dictionary;        
     }
 

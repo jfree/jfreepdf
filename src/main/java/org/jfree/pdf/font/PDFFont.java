@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.font;
 
 import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.object.PDFObject;
@@ -38,7 +38,7 @@ import org.jfree.pdf.object.PDFObject;
 /**
  * A {@link PDFObject} representing a PDF font.
  */
-class PDFFont extends PDFObject {
+public class PDFFont extends PDFObject {
   
     /** Identifier for the standard PDF font 'Helvetica'. */
     public static final String HELVETICA = "Helvetica";
@@ -92,7 +92,7 @@ class PDFFont extends PDFObject {
      * @param baseFont  the base font name.
      * @param encoding  the encoding.
      */
-    PDFFont(int number, int generation, String name, String baseFont, 
+    public PDFFont(int number, int generation, String name, String baseFont, 
             String encoding) {
         super(number, generation);
         this.name = name;

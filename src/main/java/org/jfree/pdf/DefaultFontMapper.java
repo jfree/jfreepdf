@@ -55,7 +55,7 @@ public class DefaultFontMapper implements FontMapper {
      * Creates a new instance with default mappings.
      */
     public DefaultFontMapper() {
-        this.map = new HashMap<FontKey, String>();
+        this.map = new HashMap<>();
         this.map.put(new FontKey("Dialog", false, false), PDFFont.HELVETICA);
         this.map.put(new FontKey("Dialog", true, false), PDFFont.HELVETICA_BOLD);
         this.map.put(new FontKey("Dialog", false, true), PDFFont.HELVETICA_OBLIQUE);

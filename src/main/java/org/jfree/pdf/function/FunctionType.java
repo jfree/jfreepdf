@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.function;
 
 /**
  * The PDF function types.  For the {@link PDFGraphics2D} class, only

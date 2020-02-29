@@ -213,7 +213,7 @@ public class PDFDocument {
      * 
      * @param object  the object ({@code null} not permitted). 
      */
-    public void addObject(PDFObject object) {
+    void addObject(PDFObject object) {
         Args.nullNotPermitted(object, "object");
         this.otherObjects.add(object);
     }

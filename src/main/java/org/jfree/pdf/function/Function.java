@@ -30,8 +30,11 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.function;
 
+import org.jfree.pdf.PDFGraphics2D;
+import org.jfree.pdf.PDFObject;
+import org.jfree.pdf.PDFUtils;
 import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.util.Args;
 

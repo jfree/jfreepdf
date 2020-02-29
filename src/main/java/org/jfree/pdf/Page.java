@@ -47,6 +47,9 @@ import org.jfree.pdf.Pattern.ShadingPattern;
 import org.jfree.pdf.dictionary.Dictionary;
 import org.jfree.pdf.dictionary.GraphicsStateDictionary;
 import org.jfree.pdf.filter.FlateFilter;
+import org.jfree.pdf.function.ExponentialInterpolationFunction;
+import org.jfree.pdf.function.Function;
+import org.jfree.pdf.function.StitchingFunction;
 import org.jfree.pdf.shading.AxialShading;
 import org.jfree.pdf.shading.RadialShading;
 import org.jfree.pdf.shading.Shading;
@@ -314,8 +317,7 @@ public class Page extends PDFObject {
         }
     }
     
-    private Map<Integer, String> alphaDictionaries 
-            = new HashMap<Integer, String>();
+    private Map<Integer, String> alphaDictionaries = new HashMap<>();
     
     /**
      * Returns the name of the Graphics State Dictionary that can be used
@@ -366,12 +368,13 @@ public class Page extends PDFObject {
     
     /**
      * Adds an image to the page.This creates the required PDF object, 
- as well as adding a reference in the {@code xObjects} resources.  You should not call this method directly, it exists for the use of the
- {@link PDFGraphics2D#drawImage(java.awt.Image, int, int, int, int, java.awt.image.ImageObserver)} 
+     * as well as adding a reference in the {@code xObjects} resources.  
+     * You should not call this method directly, it exists for the use of the
+     * {@link PDFGraphics2D#drawImage(java.awt.Image, int, int, int, int, java.awt.image.ImageObserver)} 
      * method.
      * 
      * @param img  the image ({@code null} not permitted).
-     * @param addSoftMaskImage
+     * @param addSoftMaskImage  add as a soft mask image?
      * 
      * @return The image reference name.
      */

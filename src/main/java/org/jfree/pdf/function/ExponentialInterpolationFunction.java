@@ -30,7 +30,9 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.function;
+
+import org.jfree.pdf.PDFUtils;
 
 /**
  * A PDF "Type 2" function.

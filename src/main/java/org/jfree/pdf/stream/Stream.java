@@ -38,8 +38,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.jfree.pdf.PDFObject;
 import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.object.PDFObject;
 import org.jfree.pdf.util.PDFUtils;
 
 /**

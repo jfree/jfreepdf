@@ -38,6 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.object.PDFObject;
 import org.jfree.pdf.util.Args;
 
 /**

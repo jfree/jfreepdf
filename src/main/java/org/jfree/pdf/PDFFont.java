@@ -33,11 +33,12 @@
 package org.jfree.pdf;
 
 import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.object.PDFObject;
 
 /**
  * A {@link PDFObject} representing a PDF font.
  */
-public class PDFFont extends PDFObject {
+class PDFFont extends PDFObject {
   
     /** Identifier for the standard PDF font 'Helvetica'. */
     public static final String HELVETICA = "Helvetica";

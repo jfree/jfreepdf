@@ -33,8 +33,8 @@
 package org.jfree.pdf.function;
 
 import org.jfree.pdf.PDFGraphics2D;
-import org.jfree.pdf.PDFObject;
 import org.jfree.pdf.dictionary.Dictionary;
+import org.jfree.pdf.object.PDFObject;
 import org.jfree.pdf.util.Args;
 import org.jfree.pdf.util.PDFUtils;
 

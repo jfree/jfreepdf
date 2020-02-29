@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf;
+package org.jfree.pdf.object;
 
 import java.awt.geom.AffineTransform;
 import org.jfree.pdf.dictionary.Dictionary;

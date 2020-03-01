@@ -38,6 +38,7 @@ import java.util.Map;
 import org.jfree.pdf.PDFGraphics2D;
 import org.jfree.pdf.PDFHints;
 import org.jfree.pdf.internal.FontKey;
+import org.jfree.pdf.internal.PDFFont;
 
 /**
  * A class that can be used to map AWT/Java2D fonts to PDF built-in font names.

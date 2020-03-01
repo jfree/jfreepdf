@@ -30,10 +30,9 @@
  * 
  */
 
-package org.jfree.pdf.font;
+package org.jfree.pdf.internal;
 
 import org.jfree.pdf.dictionary.Dictionary;
-import org.jfree.pdf.internal.PDFObject;
 
 /**
  * A {@link PDFObject} representing a PDF font.

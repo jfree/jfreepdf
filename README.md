@@ -1,7 +1,7 @@
 JFreePDF
 ========
 
-Version 2.0, by David Gilbert, 27 February 2019.
+Version 2.0, by David Gilbert, 1 March 2020.
 
 (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
 
@@ -9,7 +9,7 @@ Version 2.0, by David Gilbert, 27 February 2019.
 
 Overview
 --------
-JFreePDF is a PDF generation library for the Java(tm) platform that allows you to create content in PDF format using the standard Java2D drawing API (`Graphics2D`).  JFreePDF is light-weight, fast, and has no dependencies other than the Java runtime (11 or later).  The home page for the project is:
+JFreePDF is a library module for the Java(tm) platform that allows you to create content in Adobe's Portable Document Format (PDF) using the standard Java2D drawing API (`Graphics2D`).  JFreePDF is light-weight, fast, and has no dependencies other than the Java runtime (11 or later).  The home page for the project is:
 
 http://www.object-refinery.com/orsonpdf/
 
@@ -57,4 +57,4 @@ Change History
 Version 2.0 (not yet released)
 
 - converted to a Java module;
-- renamed OrsonPDF to JFreePDF.
+- renamed `OrsonPDF` to `JFreePDF`.

@@ -30,13 +30,11 @@
  * 
  */
 
-package org.jfree.pdf.font;
+package org.jfree.pdf;
 
 import java.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
-import org.jfree.pdf.PDFGraphics2D;
-import org.jfree.pdf.PDFHints;
 import org.jfree.pdf.internal.FontKey;
 import org.jfree.pdf.internal.PDFFont;
 

@@ -37,11 +37,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.jfree.pdf.DefaultFontMapper;
+import org.jfree.pdf.FontMapper;
 import org.jfree.pdf.PDFDocument;
 import org.jfree.pdf.Page;
 import org.jfree.pdf.dictionary.Dictionary;
-import org.jfree.pdf.font.DefaultFontMapper;
-import org.jfree.pdf.font.FontMapper;
 import org.jfree.pdf.util.Args;
 
 /**

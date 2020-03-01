@@ -15,7 +15,7 @@ http://www.object-refinery.com/orsonpdf/
 
 Getting Started
 ---------------
-The Javadoc page for the PDFDocument class gives an example of typical usage.
+The Javadoc page for the `PDFDocument` class gives an example of typical usage.
 
 Oracle provides tutorials for Java2D here:
 
@@ -26,7 +26,7 @@ There are some demonstration applications included in the [JFree Demos](https://
 
 Include
 -------
-JFreePDF is (will be) published to the Central Repository. You can include it in your projects with the following dependency:
+JFreePDF is published to the Central Repository. You can include it in your projects with the following dependency:
 
     <dependency>
         <groupId>org.jfree</groupId>
@@ -36,6 +36,14 @@ JFreePDF is (will be) published to the Central Repository. You can include it in
 
 JFreePDF defines the module name `org.jfree.pdf`.
 
+If you are using Java 8, an earlier version of this library (OrsonPDF) can be used instead:
+
+    <!-- https://mvnrepository.com/artifact/com.orsonpdf/orsonpdf -->
+    <dependency>
+        <groupId>com.orsonpdf</groupId>
+        <artifactId>orsonpdf</artifactId>
+        <version>1.9</version>
+    </dependency>
 
 Build
 -----
@@ -48,13 +56,13 @@ Dual Licensing
 --------------
 JFreePDF is dual licensed.  You can use JFreePDF under the terms of the GNU General Public License version 3 (GPLv3) or later.  If you prefer not to be bound by the terms of the GPLv3, there is an option to buy a commercial license from Object Refinery Limited.
 
-JFreePDF integrates the Ascii85OutputStream class written by Ben Upsavs and distributed freely under the (BSD-style) terms listed in the Ascii85OutputStream-license.txt file.
+JFreePDF integrates the `Ascii85OutputStream` class written by Ben Upsavs and distributed freely under the (BSD-style) terms listed in the `Ascii85OutputStream-license.txt file`.
 
 
 Change History
 --------------
 
-Version 2.0 (not yet released)
+Version 2.0 (1 March 2020)
 
 - converted to a Java module;
 - renamed `OrsonPDF` to `JFreePDF`.

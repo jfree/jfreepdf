@@ -33,7 +33,7 @@
 package org.jfree.pdf.font;
 
 import org.jfree.pdf.dictionary.Dictionary;
-import org.jfree.pdf.object.PDFObject;
+import org.jfree.pdf.internal.PDFObject;
 
 /**
  * A {@link PDFObject} representing a PDF font.

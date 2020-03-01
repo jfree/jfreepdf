@@ -30,7 +30,7 @@
  * 
  */
 
-package org.jfree.pdf.object;
+package org.jfree.pdf.internal;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

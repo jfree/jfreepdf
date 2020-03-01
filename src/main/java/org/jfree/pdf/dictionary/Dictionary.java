@@ -37,7 +37,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.jfree.pdf.object.PDFObject;
+import org.jfree.pdf.internal.PDFObject;
 import org.jfree.pdf.util.PDFUtils;
 
 /**

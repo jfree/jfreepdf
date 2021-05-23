@@ -2,9 +2,9 @@
  * JFreePDF : a fast, light-weight PDF library for the Java(tm) platform
  * =====================================================================
  * 
- * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
- *
- * Project Info:  http://www.object-refinery.com/orsonpdf/index.html
+ * (C)opyright 2013-2021, by Object Refinery Limited.  All rights reserved.
+ * 
+ * https://github.com/jfree/jfreepdf
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1286,7 +1286,7 @@ public final class PDFGraphics2D extends Graphics2D {
      * Draws an image at the location {@code (x, y)}.  Note that the 
      * {@code observer} is ignored.
      * 
-     * @param img  the image.
+     * @param img  the image ({@code null} permitted...method will do nothing).
      * @param x  the x-coordinate.
      * @param y  the y-coordinate.
      * @param observer  ignored.
@@ -1295,6 +1295,9 @@ public final class PDFGraphics2D extends Graphics2D {
      */
     @Override
     public boolean drawImage(Image img, int x, int y, ImageObserver observer) {
+        if (img == null) {
+            return true;
+        }
         int w = img.getWidth(observer);
         if (w < 0) {
             return false;
@@ -1311,7 +1314,7 @@ public final class PDFGraphics2D extends Graphics2D {
      * Note that the {@code observer} is ignored (it is not useful in this
      * context).
      * 
-     * @param img  the image.
+     * @param img  the image ({@code null} permitted...draws nothing).
      * @param x  the x-coordinate.
      * @param y  the y-coordinate.
      * @param w  the width.
@@ -1323,6 +1326,9 @@ public final class PDFGraphics2D extends Graphics2D {
     @Override
     public boolean drawImage(Image img, int x, int y, int w, int h, 
             ImageObserver observer) {
+        if (img == null) {
+            return true; 
+        }
         if (this.clip != null) {
             this.gs.pushGraphicsState();
             this.gs.applyClip(invTransformedClip(this.clip));
@@ -1338,7 +1344,7 @@ public final class PDFGraphics2D extends Graphics2D {
      * Draws an image at the location {@code (x, y)}.  Note that the 
      * {@code observer} is ignored.
      * 
-     * @param img  the image.
+     * @param img  the image ({@code null} permitted...draws nothing).
      * @param x  the x-coordinate.
      * @param y  the y-coordinate.
      * @param bgcolor  the background color ({@code null} permitted).
@@ -1349,6 +1355,9 @@ public final class PDFGraphics2D extends Graphics2D {
     @Override
     public boolean drawImage(Image img, int x, int y, Color bgcolor, 
             ImageObserver observer) {
+        if (img == null) {
+            return true;
+        }
         int w = img.getWidth(null);
         if (w < 0) {
             return false;

@@ -1,10 +1,10 @@
 /* =====================================================================
- * OrsonPDF : a fast, light-weight PDF library for the Java(tm) platform
+ * JFreePDF : a fast, light-weight PDF library for the Java(tm) platform
  * =====================================================================
  * 
- * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
- *
- * Project Info:  http://www.object-refinery.com/orsonpdf/index.html
+ * (C)opyright 2013-2021, by Object Refinery Limited.  All rights reserved.
+ * 
+ * https://github.com/jfree/jfreepdf
  * 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,10 +37,12 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -390,6 +392,27 @@ public class TestGraphics2D {
         //assertEquals(new Rectangle2D.Double(1.0, 2.0, 2.0, 2.0), 
         //        this.g2.getClip().getBounds2D());
         //assertTrue(this.g2.getClip().getBounds2D().isEmpty());        
+    }
+    
+    /**
+     * Clipping with a null argument is "not recommended" according to the 
+     * latest API docs (https://bugs.java.com/bugdatabase/view_bug.do?bug_id=6206189).
+     */
+    @Test
+    public void checkClipWithNullArgument() {
+        
+        // when there is a current clip set, a null pointer exception is expected
+        this.g2.setClip(new Rectangle2D.Double(1.0, 2.0, 3.0, 4.0));
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            this.g2.clip(null);
+        });
+        
+        this.g2.setClip(null);
+        try {
+            this.g2.clip(null);
+        } catch (Exception e) {
+            fail("No exception expected.");             
+        }
     }
     
     /**
@@ -749,6 +772,43 @@ public class TestGraphics2D {
         Image img = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
         g2.drawImage(img, null, null);
         assertTrue(true); // won't get here if there's an exception above
+    }
+    
+    @Test
+    public void drawImageWithNullImage() {
+        // API docs say method does nothing if img is null
+        // still seems to return true
+        assertTrue(g2.drawImage(null, 10, 20, null));
+        assertTrue(g2.drawImage(null, 10, 20, 30, 40, null));
+        assertTrue(g2.drawImage(null, 10, 20, Color.YELLOW, null));
+        assertTrue(g2.drawImage(null, 1, 2, 3, 4, Color.RED, null));
+        assertTrue(g2.drawImage(null, 1, 2, 3, 4, 5, 6, 7, 8, null));
+        assertTrue(g2.drawImage(null, 1, 2, 3, 4, 5, 6, 7, 8, Color.RED, null));
+    }
+    
+    @Test
+    public void drawImageWithNegativeDimensions() {
+        Image img = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
+        assertTrue(g2.drawImage(img, 1, 2, -10, 10, null));
+        assertTrue(g2.drawImage(img, 1, 2, 10, -10, null)); 
+    }
+
+    /** 
+     * A test to check whether setting a transform on the Graphics2D affects
+     * the results of text measurements performed via getFontMetrics().
+     */
+    @Test
+    public void testGetFontMetrics() {
+        Font f = new Font(Font.SANS_SERIF, Font.PLAIN, 10);
+        FontMetrics fm = this.g2.getFontMetrics(f);
+        int w = fm.stringWidth("ABC");
+        Rectangle2D bounds = fm.getStringBounds("ABC", this.g2);
+        
+        // after scaling, the string width is not changed
+        this.g2.setTransform(AffineTransform.getScaleInstance(3.0, 2.0));
+        fm = this.g2.getFontMetrics(f);
+        assertEquals(w, fm.stringWidth("ABC"));
+        assertEquals(bounds.getWidth(), fm.getStringBounds("ABC", this.g2).getWidth(), EPSILON);
     }
     
     @Test

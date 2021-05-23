@@ -2,7 +2,7 @@
  * JFreePDF : a fast, light-weight PDF library for the Java(tm) platform
  * =====================================================================
  * 
- * (C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
+ * (C)opyright 2013-2021, by Object Refinery Limited.  All rights reserved.
  *
  * Project Info:  http://www.object-refinery.com/orsonpdf/index.html
  * 
@@ -80,6 +80,11 @@ public final class PDFHints {
      */
     public static class Key extends RenderingHints.Key {
 
+        /**
+         * Creates a new instance with the specified key.
+         * 
+         * @param privateKey  the key.
+         */
         public Key(int privateKey) {
             super(privateKey);    
         }

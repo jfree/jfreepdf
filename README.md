@@ -56,6 +56,7 @@ Testing
 -------
 `JFreePDF` is being tested using [Graphics2D Tester](https://github.com/jfree/graphics2d-tester) and produces the output shown below.  
 
+![jfreepdf-test](https://user-images.githubusercontent.com/1835893/200183395-1a9c4479-6fe1-469e-a62a-65529d9a731a.png)
 
 
 Dual Licensing

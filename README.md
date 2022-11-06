@@ -64,6 +64,8 @@ Change History
 
 Version 2.0.1 (6 November 2022)
 
+- fix various warnings
+- update Maven plugin versions in pom.xml
 - updated JUnit to version 5.9.1.
 
 Version 2.0 (1 March 2020)

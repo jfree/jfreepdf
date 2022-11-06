@@ -1,9 +1,9 @@
 JFreePDF
 ========
 
-Version 2.0, by David Gilbert, 1 March 2020.
+Version 2.0.1, by David Gilbert, 6 November 2022.
 
-(C)opyright 2013-2020, by Object Refinery Limited.  All rights reserved.
+(C)opyright 2013-2022, by David Gilbert.  All rights reserved.
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.jfree/org.jfree.pdf/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.jfree/org.jfree.pdf)
 
@@ -11,7 +11,7 @@ Overview
 --------
 JFreePDF is a library module for the Java(tm) platform that allows you to create content in Adobe's Portable Document Format (PDF) using the standard Java2D drawing API (`Graphics2D`).  JFreePDF is light-weight, fast, and has no dependencies other than the Java runtime (11 or later).  The home page for the project is:
 
-http://www.object-refinery.com/orsonpdf/
+https://github.com/jfree/jfreepdf
 
 Getting Started
 ---------------
@@ -54,13 +54,17 @@ You can build JFreePDF from sources using Maven:
 
 Dual Licensing
 --------------
-JFreePDF is dual licensed.  You can use JFreePDF under the terms of the GNU General Public License version 3 (GPLv3) or later.  If you prefer not to be bound by the terms of the GPLv3, there is an option to buy a commercial license from Object Refinery Limited.
+JFreePDF is dual licensed.  You can use JFreePDF under the terms of the GNU General Public License version 3 (GPLv3) or later.  If you prefer not to be bound by the terms of the GPLv3, an alternative license is available to JFree sponsors.
 
 JFreePDF integrates the `Ascii85OutputStream` class written by Ben Upsavs and distributed freely under the (BSD-style) terms listed in the `Ascii85OutputStream-license.txt file`.
 
 
 Change History
 --------------
+
+Version 2.0.1 (6 November 2022)
+
+- updated JUnit to version 5.9.1.
 
 Version 2.0 (1 March 2020)
 

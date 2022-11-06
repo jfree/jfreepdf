@@ -52,6 +52,12 @@ You can build JFreePDF from sources using Maven:
     mvn clean install
 
 
+Testing
+-------
+`JFreePDF` is being tested using [Graphics2D Tester](https://github.com/jfree/graphics2d-tester) and produces the output shown below.  
+
+
+
 Dual Licensing
 --------------
 JFreePDF is dual licensed.  You can use JFreePDF under the terms of the GNU General Public License version 3 (GPLv3) or later.  If you prefer not to be bound by the terms of the GPLv3, an alternative license is available to JFree sponsors.

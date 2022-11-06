@@ -60,7 +60,7 @@ public enum ShadingType {
      * 
      * @param number  the PDF number for the shading type. 
      */
-    private ShadingType(int number) {
+    ShadingType(int number) {
         this.number = number;
     }
     

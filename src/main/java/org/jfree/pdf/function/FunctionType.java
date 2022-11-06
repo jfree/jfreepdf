@@ -55,7 +55,7 @@ public enum FunctionType {
     /** The PDF number for the function type. */
     private final int number;
     
-    private FunctionType(int number) {
+    FunctionType(int number) {
         this.number = number;
     }
     

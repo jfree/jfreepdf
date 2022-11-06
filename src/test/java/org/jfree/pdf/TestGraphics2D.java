@@ -397,9 +397,7 @@ public class TestGraphics2D {
         
         // when there is a current clip set, a null pointer exception is expected
         this.g2.setClip(new Rectangle2D.Double(1.0, 2.0, 3.0, 4.0));
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            this.g2.clip(null);
-        });
+        Exception exception = assertThrows(NullPointerException.class, () -> this.g2.clip(null));
         
         this.g2.setClip(null);
         try {

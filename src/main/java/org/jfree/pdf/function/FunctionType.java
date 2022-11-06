@@ -31,6 +31,8 @@
 
 package org.jfree.pdf.function;
 
+import org.jfree.pdf.PDFGraphics2D;
+
 /**
  * The PDF function types.  For the {@link PDFGraphics2D} class, only
  * {@code EXPONENTIAL_INTERPOLATION} and {@code STITCHING} are used at present 

@@ -351,7 +351,7 @@ public class Page extends PDFObject {
 
     /**
      * Adds a soft mask image to the page.  This is called from the 
-     * {@link #addImage(java.awt.Image)} method to support image transparency.
+     * {@link #addImage(java.awt.Image, boolean)} method to support image transparency.
      * 
      * @param img  the image ({@code null} not permitted).
      * 

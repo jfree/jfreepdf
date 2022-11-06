@@ -31,7 +31,7 @@ JFreePDF is published to the Central Repository. You can include it in your proj
     <dependency>
         <groupId>org.jfree</groupId>
         <artifactId>org.jfree.pdf</artifactId>
-        <version>2.0</version>
+        <version>2.0.1</version>
     </dependency>
 
 JFreePDF defines the module name `org.jfree.pdf`.
